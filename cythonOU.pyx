@@ -13,6 +13,7 @@ from __future__ import division
 import random, uuid
 import numpy as np
 from math import ceil
+from math import exp
 cimport numpy as np
 cimport cython
 
@@ -70,7 +71,7 @@ def OUProcess(
 	# Initialization of random number generator:
 	myUUID = uuid.uuid4()
 	random.seed(myUUID.int)
-	for i in range(624): mySeed[i] = random.randint(0,2**30) 				
+	for i in range(624): mySeed[i] = random.randint(0,int(exp(21)))
 	myTwister.seed(mySeed)
 
 	################################################################################
